@@ -1,0 +1,42 @@
+[project]
+name = "{{ project_name }}"
+version = "0.1.0"
+description = "{{ description }}"
+readme = "README.md"
+authors = [{ name = "{{ author_name }}", email = "{{ author_email }}" }]
+requires-python = ">={{ python_version }}"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.0",
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_format = "%(message)s"
+log_date_format = "%H:%M:%S"
+
+[tool.isort]
+profile = "hug"
+force_single_line = true
+line_length = {{ line_length }}
+
+[tool.flake8]
+max-line-length = {{ line_length }}
+exclude = [".git", "__pycache__", "dist"]
+
+[tool.black]
+line-length = {{ line_length }}
+exclude = '''
+(
+  /(
+    | \.git
+    | \venv*
+    | build
+    | dist
+  )/
+)
+'''

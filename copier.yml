@@ -1,0 +1,31 @@
+_exclude:
+  - README.md
+
+project_name:
+  type: str
+  help: "Package name (lowercase, hyphens OK for display)"
+  placeholder: my-package
+
+package_name:
+  type: str
+  help: "Python import name (underscores, no hyphens)"
+  default: "{{ project_name | replace('-', '_') }}"
+
+description:
+  type: str
+  help: "One-line project description"
+
+author_name:
+  type: str
+
+author_email:
+  type: str
+
+python_version:
+  type: str
+  default: "3.12"
+
+line_length:
+  type: int
+  default: 120
+  help: "Black/flake8 line length"
