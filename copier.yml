@@ -1,5 +1,6 @@
 _exclude:
   - README.md
+  - .git
 
 project_name:
   type: str
